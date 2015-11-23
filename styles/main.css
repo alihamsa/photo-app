@@ -8,4 +8,10 @@ ul, a {
   padding-right: 15px;
   padding-top: auto; }
 
+#profile {
+  height: 600px; }
+
+th, td {
+  padding: 40px; }
+
 /*# sourceMappingURL=main.css.map */
