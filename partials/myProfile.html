@@ -1,0 +1,16 @@
+<div ng-controller="photoCtrl">
+<table>
+      <tr>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Tags</th>
+        <th>Album</th>
+      </tr>
+      <tr ng-repeat="photo in photo-apps">
+        <td><img src="{{photos.photoURL}}" width="100"></td>
+        <td>{{photo-apps.albums}}</td>
+        <td>{{photos.tags}}</td>
+        <td>{{photos.album}}</td>
+      </tr>
+    </table>
+  </div>
