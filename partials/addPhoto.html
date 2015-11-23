@@ -1,0 +1,32 @@
+<div ng-controller="addPhotoController as addPhotoCtrl" class="row">
+	<h1 class="col-md-offset-3 col-md-6">Add Your Photo Here</h1>
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<label>Photo Title</label>
+			<input type="text" ng-model="addPhotoCtrl.newPhoto.title" placeholder="Photo Title">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<label>Album Name</label>
+			<input type="text" ng-model="addPhotoCtrl.newPhoto.album" placeholder="Album Name">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<label>Photo URL</label>
+			<input type="text" ng-model="addPhotoCtrl.newPhoto.photoURL" placeholder="Photo URL">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<label>Description</label>
+			<input type="text" ng-model="addPhotoCtrl.newPhoto.description" placeholder="Description">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<button ng-click="addPhotoCtrl.addPhoto()">Add Photo</button>
+		</div>
+	</div>
+</div>
