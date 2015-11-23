@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app="PhotoApp">
+<div ng-controller="AuthCtrl" class="col-md-6 centered left">
+  Email: <input type="text" ng-model="email">
+  Password: <input type="text" ng-model="password">
+
+  <br><br>
+
+  <button ng-click="createUser()">Register</button>
+</div>
+
+<div ng-controller="LoginCtrl" class="col-md-6 centered right">
+  Email: <input type="text" ng-model="email">
+  Password: <input type="text" ng-model="password">
+	
+	<button ng-click="logIn()">Login</button>
+</div>  
+
+  </body>
+</html>
+
+  
