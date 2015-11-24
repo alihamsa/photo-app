@@ -19,5 +19,9 @@ var app = angular.module('photoApp', ['ngRoute', 'firebase']);
   // Instead of snapshot.val(), use this syntax to get songs
     $scope.photo = $firebaseArray(ref);
 
-  }
+
+   
+
+    }
+
 ]);

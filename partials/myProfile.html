@@ -1,15 +1,16 @@
 <div class="container">
-  <div ng-controller="photoCtrl" class="col-xs-10" id="profile">
+  <div ng-controller="photoCtrl" class="col-sm-12" id="profile">
   <table>
         <tr>
           <th>Photo</th>
           <th>Description</th>
-          <th>Tags</th>
+          <th>Tags <button>Edit</button></th>
           <th>Album</th>
         </tr>
         <tr ng-repeat="photo in photo">
           <td><img src="{{photo.photoURL}}" width="100"></td>
           <td>{{photo.albums}}</td>
+          <td>{{photo.description}}</td>
           <td>{{photo.tags}}</td>
           <td>{{photo.album}}</td>
         </tr>
