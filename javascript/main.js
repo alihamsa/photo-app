@@ -12,7 +12,7 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when('/myProfile', {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'
-  })
+  });
 }]);
 
 app.controller("photoCtrl", ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
