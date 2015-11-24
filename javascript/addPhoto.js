@@ -17,11 +17,11 @@ app.controller('addPhotoController', ['$firebaseArray', 'Auth', '$uibModal', '$u
 			tags: this.tags
 		});
 		this.newPhoto = {};
-		this.cancelAddPhoto();
+		this.dismissPhotoModal();
 	};
 
-	this.cancelAddPhoto = function(){
-		console.log('cancelAddPhoto');
+	this.dismissPhotoModal = function(){
+		console.log('dismissPhotoModal');
 		$uibModalInstance.dismiss('dismiss');
 	};
 
