@@ -6,22 +6,10 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app="photoApp">
-	<div class="container">
-			<div class="row">
-				<div  class="col-xs-12">
-					<ul class="nav navbar-nav">
-					  <a href="">Add Photo</a>
-					  <a href="">My Profile</a>
-					  <a href="">All Photos</a>
-					  <a href="">Other Users</a>
-					</ul>
-	    	</div>
-	    </div>
-	  </div>
-<div ng-view></div>
 
-<div ng-include="'partials/addPhoto.html'"></div>
+	<div ng-include="'partials/nav.html'"></div>
 
+	<div ng-view></div>
 
 	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -30,7 +18,9 @@
 	<script src="lib/bower_components/angular/angular.js"></script>
 	<script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
 	<script src="lib/bower_components/angular-route/angular-route.js"></script>
+	<script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<script src="javascript/main.js"></script>
+	<script src="javascript/nav.js"></script>
 	<script src="javascript/addPhoto.js"></script>
 </body>
 </html>

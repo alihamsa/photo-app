@@ -1,4 +1,4 @@
-app.controller('addPhotoController', ['$firebaseArray', function($firebaseArray){
+app.controller('addPhotoController', ['$firebaseArray', '$uibModal', '$uibModalInstance', function($firebaseArray, $uibModal, $uibModalInstance){
 	console.log('addPhotoController hooked up');
 
 	var firebaseRef = new Firebase('https://photo-apps.firebaseio.com/');
@@ -16,4 +16,9 @@ app.controller('addPhotoController', ['$firebaseArray', function($firebaseArray)
 		});
 		this.newPhoto = {};
 	};
+
+	this.cancelAddPhoto = function(){
+		console.log('cancelAddPhoto');
+	};
+
 }]);
