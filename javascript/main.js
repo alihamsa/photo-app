@@ -6,10 +6,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'
   })
-  .when('/', {
-    templateUrl: 'partials/register.html',
-    controller: 'AuthCtrl'
-  });
 }]);
 
  app.controller("photoCtrl", ["$scope", "$firebaseArray", function($scope, $firebaseArray) {

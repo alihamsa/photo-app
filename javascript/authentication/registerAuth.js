@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) { 
 
@@ -37,6 +38,41 @@ app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
 			$scope.auth.$unauth();
 			$location.path( "/");
 		}; // logout
+=======
+app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
+
+	$scope.createUser = function() {
+		$scope.message = null;
+		$scope.error = null;
+		console.log("Hell Yeah!!")
+
+		Auth.$createUser({
+			email: $scope.email,
+			password: $scope.password
+		}).then(function(userData) {
+			console.log("User " + userData.uid + " created successfully!");
+		}).catch(function(error) {
+			console.log(error);
+		});
+	}; //end register
+
+	$scope.logIn = function(){
+		Auth.$authWithPassword({
+			email: $scope.email,
+			password: $scope.password
+		}).then(function(authData) {
+			console.log("User: ", Auth.$authWithPassword)
+		}).catch(function(error) {
+			console.error("Something's amiss:", error);
+		});
+	}; // login
+
+	$scope.logOut = function(){
+		console.log('logged out');
+		$scope.auth.$unauth();
+		$location.path( "/");
+	}; // logout
+>>>>>>> 2b7bfc25a7bd9717362d84bc53b1827252aae8d9
 
 }]);
 
