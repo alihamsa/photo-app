@@ -1,6 +1,4 @@
-var app = angular.module("PhotoApp", ["firebase"]);
-
-app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) { 
+app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
 
 
   	$scope.createUser = function() {
@@ -17,7 +15,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
 				}).catch(function(error) {
 
 				});
-        
+
 
 		}; //end register
 
