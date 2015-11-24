@@ -1,17 +1,19 @@
-var app = angular.module('photoApp', ['ngRoute', 'firebase']);
+var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput']);
 
-app.config(function ($routeProvider) {
-  $routeProvider.
-  when('/myProfile', {templateUrl: 'partials/myProfile.html', controller: 'photoCtrl'}).
-  otherwise({redirectTo: '/index.html'});
-  });
-
-app.factory("Auth", ["$firebaseAuth",
-  function($firebaseAuth) {
-    var ref = new Firebase("https://photo-apps.firebaseio.com/");
-    return $firebaseAuth(ref);
-  }
-]);
+app.config(['$routeProvider', function ($routeProvider) {
+  $routeProvider
+  .when('/', {
+    templateUrl: 'partials/register.html',
+    controller: 'AuthCtrl'
+  })
+  .when('/welcome', {
+    templateUrl: 'partials/welcome.html'
+  })
+  .when('/myProfile', {
+    templateUrl: 'partials/myProfile.html',
+    controller: 'photoCtrl'
+  }).otherwise({redirectTo: '/'});
+}]);
 
 app.controller("photoCtrl",
   ["$scope",

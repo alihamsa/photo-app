@@ -1,21 +1,23 @@
+<div ng-include="'partials/nav.html'"></div>
+
 <div class="container">
   <div ng-controller="photoCtrl" class="col-sm-12" id="profile">
-  <table>
-        <tr>
-          <th>Photo</th>
-          <th>Description</th>
-          <th>Tags</th>
-          <th>Album</th>
-          <th>Edit</th>
-        </tr>
-        <tr ng-repeat="photo in photo">
-          <td><img ng-src="{{photo.photoURL}}" width=300px;></td>
-          <td>{{photo.albums}}</td>
-          <td>{{photo.description}}</td>
-          <td>{{photo.tags}}</td>
-          <td>{{photo.album}}</td>
-          <td><button photo={{photo}} ng-click="editPhoto(photo)">Edit</button></td>
-        </tr>
-      </table>
-    </div>
+    <table>
+      <tr>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Tags</th>
+        <th>Album</th>
+        <th>Edit</th>
+      </tr>
+      <tr ng-repeat="photo in photo">
+        <td><img ng-src="{{photo.photoURL}}" width=300px;></td>
+        <td>{{photo.albums}}</td>
+        <td>{{photo.description}}</td>
+        <td>{{photo.tags}}</td>
+        <td>{{photo.album}}</td>
+        <td><button photo={{photo}} ng-click="editPhoto(photo)">Edit</button></td>
+      </tr>
+    </table>
   </div>
+</div>
