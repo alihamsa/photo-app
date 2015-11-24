@@ -29,6 +29,19 @@
 			<tags-input ng-model="addPhotoCtrl.tags"></tags-input>
 		</div>
 	</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<p class="input-group">
+			<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="addPhotoCtrl.dtTaken" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+		</p>
+	</div>
+</div>
+
+
 	<div class="row">
 		<div class="col-md-3">
 			<button ng-click="addPhotoCtrl.addPhoto()">Add Photo</button>
