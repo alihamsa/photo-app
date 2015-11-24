@@ -1,35 +1,53 @@
-<div class="row">
-	<h1 class="col-md-offset-3 col-md-6">Add Your Photo Here</h1>
+<div class="container">
+	<h1>Add Your Photo Here</h1>
 	<div class="row">
-		<div class="col-md-offset-3 col-md-6">
+		<div class="col-md-6">
 			<label>Photo Title</label>
 			<input type="text" ng-model="addPhotoCtrl.newPhoto.title" placeholder="Photo Title">
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-offset-3 col-md-6">
+		<div class="col-md-6">
 			<label>Album Name</label>
 			<input type="text" ng-model="addPhotoCtrl.newPhoto.album" placeholder="Album Name">
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-offset-3 col-md-6">
+		<div class="col-md-6">
 			<label>Photo URL</label>
 			<input type="text" ng-model="addPhotoCtrl.newPhoto.photoURL" placeholder="Photo URL">
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-offset-3 col-md-6">
+		<div class="col-md-6">
 			<label>Description</label>
 			<input type="text" ng-model="addPhotoCtrl.newPhoto.description" placeholder="Description">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
+			<tags-input ng-model="addPhotoCtrl.tags"></tags-input>
+		</div>
+	</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<p class="input-group">
+			<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="addPhotoCtrl.dtTaken" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+		</p>
+	</div>
+</div>
+
+
+	<div class="row">
+		<div class="col-md-3">
 			<button ng-click="addPhotoCtrl.addPhoto()">Add Photo</button>
 		</div>
-		<div class="col-md-6">
-			<button ng-click="addPhotoCtrl.cancelAddPhoto()">Cancel</button>
+		<div class="col-md-3">
+			<button ng-click="addPhotoCtrl.dismissPhotoModal()">Cancel</button>
 		</div>
 	</div>
 </div>

@@ -1,3 +1,5 @@
+<div ng-include="'partials/nav.html'"></div>
+
 <div ng-controller="photoCtrl">
 <table>
       <tr>
@@ -7,7 +9,7 @@
         <th>Album</th>
       </tr>
       <tr ng-repeat="photo in photos">
-        <td><img src="{{photo.photoURL}}" width="100"></td>
+        <td><img src="{{photo.photoURL}}"></td>
         <td>{{photo.description}}</td>
         <td>{{photo.tags}}</td>
         <td>{{photo.album}}</td>

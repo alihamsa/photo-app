@@ -3,7 +3,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", '$location', function($scope, Auth
 	$scope.createUser = function() {
 		$scope.message = null;
 		$scope.error = null;
-		console.log("Hell Yeah!!")
+		console.log("Hell Yeah!!");
 
 		Auth.$createUser({
 			email: $scope.email,
@@ -20,7 +20,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", '$location', function($scope, Auth
 			email: $scope.email,
 			password: $scope.password
 		}).then(function(authData) {
-			console.log("User: ", Auth.$authWithPassword)
+			console.log("User: ", Auth.$authWithPassword);
 			$location.url('/welcome');
 		}).catch(function(error) {
 			console.error("Something's amiss:", error);

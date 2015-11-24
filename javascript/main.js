@@ -1,4 +1,4 @@
-var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap']);
+var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
@@ -12,7 +12,7 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when('/myProfile', {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'
-  })
+  });
 }]);
 
 app.controller("photoCtrl", ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
