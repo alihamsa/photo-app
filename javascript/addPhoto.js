@@ -1,9 +1,10 @@
-app.controller('addPhotoController', ['$firebaseArray', '$uibModal', '$uibModalInstance', function($firebaseArray, $uibModal, $uibModalInstance){
-	console.log('addPhotoController hooked up');
+app.controller('addPhotoController', ['$firebaseArray', 'Auth', '$uibModal', '$uibModalInstance', function($firebaseArray, Auth, $uibModal, $uibModalInstance){
 
-	var firebaseRef = new Firebase('https://photo-apps.firebaseio.com/');
+	this.userAuthData = Auth.$getAuth();
 
-	this.photoList = $firebaseArray(firebaseRef);
+	var userPhotoList = new Firebase('https://photo-apps.firebaseio.com/users/' + this.userAuthData.uid + '/photos');
+
+	this.photoList = $firebaseArray(userPhotoList);
 
 	this.newPhoto = {};
 
@@ -12,13 +13,16 @@ app.controller('addPhotoController', ['$firebaseArray', '$uibModal', '$uibModalI
 			title: this.newPhoto.title,
 			album: this.newPhoto.album,
 			photoURL: this.newPhoto.photoURL,
-			description: this.newPhoto.description
+			description: this.newPhoto.description,
+			tags: []
 		});
 		this.newPhoto = {};
+		this.cancelAddPhoto();
 	};
 
 	this.cancelAddPhoto = function(){
 		console.log('cancelAddPhoto');
+		$uibModalInstance.dismiss('dismiss');
 	};
 
 }]);
