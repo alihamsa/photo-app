@@ -2,6 +2,10 @@ var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
+  .when('/', {
+    templateUrl: 'partials/register.html',
+    controller: 'AuthCtrl'
+  })
   .when('/myProfile', {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'

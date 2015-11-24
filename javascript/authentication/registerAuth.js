@@ -1,4 +1,4 @@
-app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
+app.controller("AuthCtrl", ["$scope", "Auth", '$location', function($scope, Auth, $location) {
 
 	$scope.createUser = function() {
 		$scope.message = null;
@@ -21,6 +21,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
 			password: $scope.password
 		}).then(function(authData) {
 			console.log("User: ", Auth.$authWithPassword)
+			$location.url('/welcome');
 		}).catch(function(error) {
 			console.error("Something's amiss:", error);
 		});
