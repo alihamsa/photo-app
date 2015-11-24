@@ -1,4 +1,3 @@
-var app = angular.module("PhotoApp", ["firebase"]);
 
 app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) { 
 
@@ -26,6 +25,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", function($scope, Auth) {
 			  email: $scope.email,
 			  password: $scope.password
 			}).then(function(authData) {
+				$location.url('/welcome');
 				console.log("User: ", Auth.$authWithPassword)
 			}).catch(function(error) {
 			  console.error("Something's amiss:", error);

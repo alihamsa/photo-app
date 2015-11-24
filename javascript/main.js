@@ -5,6 +5,10 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when('/myProfile', {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'
+  })
+  .when('/', {
+    templateUrl: 'partials/register.html',
+    controller: 'AuthCtrl'
   });
 }]);
 
