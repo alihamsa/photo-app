@@ -14,7 +14,7 @@ app.controller('addPhotoController', ['$firebaseArray', 'Auth', '$uibModal', '$u
 			album: this.newPhoto.album,
 			photoURL: this.newPhoto.photoURL,
 			description: this.newPhoto.description,
-			tags: []
+			tags: this.tags
 		});
 		this.newPhoto = {};
 		this.cancelAddPhoto();

@@ -1,4 +1,4 @@
-var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap']);
+var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
