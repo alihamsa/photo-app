@@ -1,7 +1,5 @@
 app.controller('editPhotoController', ['$uibModal', function($uibModal){
 
-
-
   this.editPhotoModal = function(photo){
     /**
      *I'm expecting this next assignment is creating editPhotoController.photo in the parent scope of the function, but it does not show in the DOM or ngInspector.
