@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<tags-input ng-model="editPhotoCtrl.photo.tags"></tags-input>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<!-- <label>Photo Title</label> -->
+			<!-- <input type="text" ng-model="editPhotoCtrl.photo.title" placeholder="{{editPhotoCtrl.photo.title}}"> -->
+			<p>{{editPhotoCtrl.photo.title}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<!-- <img ng-src={{editPhotoCtrl.photo.photoURL}} alt={{editPhotoCtrl.photo.title}}> -->
+			<p>{{editPhotoCtrl.photo.photoURL}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<!-- <label>Album Name</label> -->
+			<!-- <input type="text" ng-model="editPhotoCtrl.photo.album" placeholder="Album Name"> -->
+			<p>{{editPhotoCtrl.photo.album}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<!-- <label>Description</label> -->
+			<!-- <input type="text" ng-model="editPhotoCtrl.photo.description" placeholder="Description"> -->
+			<p>{{editPhotoCtrl.photo.description}}</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3">
+			<button>Save Photo</button>
+		</div>
+		<div class="col-md-3">
+			<button ng-click="editPhotoCtrl.dismissPhotoModal()">Cancel</button>
+		</div>
+	</div>
+</div>

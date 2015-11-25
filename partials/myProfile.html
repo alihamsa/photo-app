@@ -16,7 +16,7 @@
         <td>{{photo.description}}</td>
         <td>{{photo.tags}}</td>
         <td>{{photo.album}}</td>
-        <td><button photo={{photo}} ng-click="editPhoto(photo)">Edit</button></td>
+        <td ng-controller="editPhotoController as editPhotoCtrl"><button photo={{photo}} ng-click="editPhotoCtrl.editPhotoModal(photo)">Edit</button></td>
       </tr>
     </table>
   </div>

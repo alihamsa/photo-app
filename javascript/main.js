@@ -28,10 +28,6 @@ app.controller("photoCtrl",
   // Instead of snapshot.val(), use this syntax to get songs
   $scope.photo = $firebaseArray(ref);
 
-  $scope.editPhoto = function(photo){
-    console.log('editPhoto run', photo);
-  };
-
   }
 
 ]);
