@@ -8,7 +8,10 @@
         <th>Tags</th>
         <th>Album</th>
       </tr>
-      <tr ng-repeat="photo in photos">
+      <input type="text" ng-model="search" />
+
+
+      <tr ng-repeat="photo in photos | filter: photoCtrl.search:photo.strict | orderBy: 'name' ">
         <td><img src="{{photo.photoURL}}"></td>
         <td>{{photo.description}}</td>
         <td>{{photo.tags}}</td>
