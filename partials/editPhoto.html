@@ -1,44 +1,48 @@
-<!-- <div class="container"> -->
-<div class="container" ng-controller="editPhotoController as editPhotoCtrl">
+<div ng-include="'partials/nav.html'"></div>
+
+<div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<tags-input ng-model="editPhotoCtrl.photo.tags"></tags-input>
+			<img ng-src={{selectedPhoto.photoURL}} alt={{selectedPhoto.title}} width=700px;>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<!-- <label>Photo Title</label> -->
-			<!-- <input type="text" ng-model="editPhotoCtrl.photo.title" placeholder="{{editPhotoCtrl.photo.title}}"> -->
-			<p>{{editPhotoCtrl.photo.title}}</p>
+			<label>Photo Title</label>
+			<input type="text" ng-model="selectedPhoto.title" placeholder={{selectedPhoto.title}}>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<!-- <img ng-src={{editPhotoCtrl.photo.photoURL}} alt={{editPhotoCtrl.photo.title}}> -->
-			<p>{{editPhotoCtrl.photo.photoURL}}</p>
+			<label>Album Name</label>
+			<input type="text" ng-model="selectedPhoto.album" placeholder="Album Name">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<!-- <label>Album Name</label> -->
-			<!-- <input type="text" ng-model="editPhotoCtrl.photo.album" placeholder="Album Name"> -->
-			<p>{{editPhotoCtrl.photo.album}}</p>
+			<label>Photo URL</label>
+			<input type="text" ng-model="selectedPhoto.photoURL" placeholder="Photo URL">
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<!-- <label>Description</label> -->
-			<!-- <input type="text" ng-model="editPhotoCtrl.photo.description" placeholder="Description"> -->
-			<p>{{editPhotoCtrl.photo.description}}</p>
+			<label>Description</label>
+			<input type="text" ng-model="selectedPhoto.description" placeholder="Description">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<tags-input ng-model="selectedPhoto.tags" min-length=1></tags-input>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-md-3">
-			<button>Save Photo</button>
+		<div class="col-md-4 col-md-offset-4">
+			<button ng-click="updatePhoto()">Save Changes</button>
 		</div>
 		<div class="col-md-3">
-			<button ng-click="editPhotoCtrl.dismissPhotoModal()">Cancel</button>
+			<button ng-click="deletePhoto()">Delete Photo</button>
 		</div>
 	</div>
+
 </div>

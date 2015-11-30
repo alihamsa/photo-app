@@ -14,9 +14,9 @@
         <td><img ng-src="{{photo.photoURL}}" width=300px;></td>
         <td>{{photo.albums}}</td>
         <td>{{photo.description}}</td>
-        <td>{{photo.tags}}</td>
+        <td><tags-input ng-model="photo.tags"></tags-input></td>
         <td>{{photo.album}}</td>
-        <td ng-controller="editPhotoController as editPhotoCtrl"><button photo={{photo}} ng-click="editPhotoCtrl.editPhotoModal(photo)">Edit</button></td>
+        <td><a href="#/{{photo.$id}}"><button>Edit</button></a></td>
       </tr>
     </table>
   </div>

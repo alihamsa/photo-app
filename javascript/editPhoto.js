@@ -1,26 +1,35 @@
-app.controller('editPhotoController', ['$uibModal', function($uibModal){
+app.controller('editPhotoController', ['$scope', '$firebaseArray', '$routeParams', 'Auth', '$location', function($scope, $firebaseArray, $routeParams, Auth, $location){
 
-  this.editPhotoModal = function(photo){
-    /**
-     *I'm expecting this next assignment is creating editPhotoController.photo in the parent scope of the function, but it does not show in the DOM or ngInspector.
-     *
-     * Since the call site is in the HTML, I'm not sure where I would
-     *
-     * WHAT IS THIS?!?!?!?
-     */
-    this.photo = photo;
+  $scope.photoID = $routeParams.photoID;
+  $scope.selectedPhoto = null;
 
+  $scope.userAuthData = Auth.$getAuth();
+  var userPhotoList = new Firebase('https://photo-apps.firebaseio.com/users/' + $scope.userAuthData.uid + '/photos');
+  $scope.photoList = $firebaseArray(userPhotoList);
+  console.log("$scope.photoList", $scope.photoList);
 
-    console.log("this.photo", this.photo);
-  	$uibModal.open({
-  		templateUrl: '/partials/editPhoto.html',
-      controller: "editPhotoController as editPhotoCtrl"
-  	});
+  $scope.photoList.$loaded()
+  .then(function(){
+    $scope.selectedPhoto = $scope.photoList.$getRecord($scope.photoID);
+    console.log("$scope.selectedPhoto", $scope.selectedPhoto);
+  }).catch(function(error){
+    console.log("error", error);
+  });
+
+  $scope.updatePhoto = function(){
+    $scope.photoList.$save($scope.selectedPhoto)
+    .then(function(obj){
+      console.log("Photo updated", obj);
+    });
   };
 
-  this.dismissPhotoModal = function(){
-    $uibModalInstance.dismiss('dismiss');
+  $scope.deletePhoto = function(){
+    console.log('deletePhoto run');
+    $scope.photoList.$remove($scope.selectedPhoto)
+    .then(function(obj){
+      console.log("Photo deleted", obj);
+    });
+    $location.url("/myProfile");
   };
-
 
 }]);

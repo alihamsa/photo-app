@@ -1,4 +1,4 @@
-var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput']);
+var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput', 'angularModalService']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
@@ -12,7 +12,12 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when('/myProfile', {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'
-  }).otherwise({redirectTo: '/'});
+  })
+  .when('/:photoID', {
+    templateUrl: 'partials/editPhoto.html',
+    controller: 'editPhotoController'
+  })
+  .otherwise({redirectTo: '/'});
 }]);
 
 app.controller("photoCtrl",
