@@ -1,4 +1,4 @@
-var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput']);
+var app = angular.module('photoApp', ['ngRoute', 'firebase', 'ui.bootstrap', 'ngTagsInput', 'angularModalService']);
 
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
@@ -12,16 +12,27 @@ app.config(['$routeProvider', function ($routeProvider) {
   .when('/myProfile', {
     templateUrl: 'partials/myProfile.html',
     controller: 'photoCtrl'
-  });
+  })
+  .when('/:photoID', {
+    templateUrl: 'partials/editPhoto.html',
+    controller: 'editPhotoController'
+  })
+  .otherwise({redirectTo: '/'});
 }]);
 
-app.controller("photoCtrl", ["$scope", "$firebaseArray", function($scope, $firebaseArray) {
+app.controller("photoCtrl",
+  ["$scope",
+  "$firebaseArray", 'Auth',
+  function($scope, $firebaseArray, Auth) {
 
-// Just like in the RequireJS version of Music History, make a reference
-var ref = new Firebase("https://photo-apps.firebaseio.com/");
+  this.userAuthData = Auth.$getAuth();
 
-// Instead of snapshot.val(), use this syntax to get photos
-console.log("$firebaseArray(ref)", $firebaseArray(ref));
-$scope.photos = $firebaseArray(ref);
+  // Just like in the RequireJS version of Music History, make a reference
+  var ref = new Firebase('https://photo-apps.firebaseio.com/users/' + this.userAuthData.uid + '/photos');
 
-}]);
+  // Instead of snapshot.val(), use this syntax to get songs
+  $scope.photo = $firebaseArray(ref);
+
+  }
+
+]);

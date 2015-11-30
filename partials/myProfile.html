@@ -1,21 +1,26 @@
 <div ng-include="'partials/nav.html'"></div>
 
-<div ng-controller="photoCtrl">
-<table>
+<div class="container">
+  <div ng-controller="photoCtrl" class="col-sm-12" id="profile">
+    <table>
       <tr>
         <th>Photo</th>
         <th>Description</th>
         <th>Tags</th>
         <th>Album</th>
+        <th>Edit</th>
       </tr>
       <input type="text" ng-model="search" />
 
 
-      <tr ng-repeat="photo in photos | filter: photoCtrl.search:photo.strict | orderBy: 'name' ">
-        <td><img src="{{photo.photoURL}}"></td>
+      <tr ng-repeat="photo in photo | filter: photoCtrl.search:photo.strict | orderBy: 'name' ">
+        <td><img src="{{photo.photoURL}}" width=300px;></td>
+        <td>{{photo.albums}}</td>
         <td>{{photo.description}}</td>
-        <td>{{photo.tags}}</td>
+        <td><tags-input ng-model="photo.tags"></tags-input></td>
         <td>{{photo.album}}</td>
+        <td><a href="#/{{photo.$id}}"><button>Edit</button></a></td>
       </tr>
     </table>
   </div>
+</div>

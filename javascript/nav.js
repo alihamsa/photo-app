@@ -1,4 +1,4 @@
-app.controller('navController', ['$uibModal', function($uibModal){
+app.controller('navController', ['$uibModal', 'ModalService', function($uibModal, ModalService){
 
   this.addPhotoModal = function(){
     $uibModal.open({
