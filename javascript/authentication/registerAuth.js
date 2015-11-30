@@ -30,7 +30,7 @@ app.controller("AuthCtrl", ["$scope", "Auth", '$location', function($scope, Auth
 	$scope.logOut = function(){
 		console.log('logged out');
 		$scope.auth.$unauth();
-		$location.path("/");
+		$location.path("/register");
 	}; // logout
 
 }]);
